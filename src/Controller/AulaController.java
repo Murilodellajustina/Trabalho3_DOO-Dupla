@@ -49,17 +49,18 @@ public class AulaController {
         AulaModel aulaSolicitar = aula.buscarAulaPorId(idAula);
         List<AulaModel> aulaDisponivel = aula.listarAulasDisponiveis();
         boolean disponivel = false;
+        if(aulaSolicitar == null){
+            JOptionPane.showMessageDialog(null, "Aula nao existe!");
+            return false;
+        }
         for (AulaModel aulaModel : aulaDisponivel) {
             if(aulaSolicitar.getId() == aulaModel.getId()){
                 disponivel = true;
             }
         }
-        if(aulaSolicitar == null){
-            JOptionPane.showMessageDialog(null, "Aula nao existe!");
-            return false;
-        }
         
-        else if(disponivel == false){
+        
+        if(disponivel == false){
             JOptionPane.showMessageDialog(null, "Id informado invalido!");
             return false;
         }

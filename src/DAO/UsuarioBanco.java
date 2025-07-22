@@ -20,7 +20,7 @@ public class UsuarioBanco {
         
         try {
             if (buscarUsuarioPorLogin(Usuario.getCPF()) != null) {
-            JOptionPane.showMessageDialog(null, "CPF já cadastrado!");
+            JOptionPane.showMessageDialog(null, "CPF já cadastrado ou inválido!");
             }
             else{
                 connection = new ConexaoDAO().conectorBD();

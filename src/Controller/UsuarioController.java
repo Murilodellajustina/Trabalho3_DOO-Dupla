@@ -21,6 +21,9 @@ public class UsuarioController {
         if(usuario.getDataNascimento().after(depois) || usuario.getDataNascimento().before(antes)){
             JOptionPane.showMessageDialog(null, "Data Inválida!");
         }
+        else if(usuario.getCPF().length() < 13 || usuario.getCPF().equalsIgnoreCase("   .   .   -  ")){
+            JOptionPane.showMessageDialog(null, "CPF Inválido!");
+        }
         else if((usuario.getNome() != null && usuario.getNome().length()>0) && (usuario.getCPF() != null && usuario.getCPF().length()>0) && (usuario.getSenha() != null && usuario.getSenha().length()>0) && (usuario.getDataNascimento() != null) && (usuario.getTipo() != null)){
             usuarioModel.cadastrarUsuarioDAO(usuario);
         }else{
